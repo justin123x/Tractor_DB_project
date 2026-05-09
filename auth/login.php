@@ -62,6 +62,55 @@ $base_url = getBaseUrl();
     <link rel="icon" type="image/png" href="/tracktor/logo.png">
 </head>
 <body>
-    
+    <div class="auth-wrapper">
+        <div class="auth-bg"></div>
+        <div class="auth-overlay"></div>
+        <div class="auth-card">
+            <div class="auth-logo">
+                <img src="/tracktor/logo.png" alt="TRACKTOR" class="auth-logo-img">
+                <h2>TRACKTOR</h2>
+                <p>Welcome Back</p>
+            </div>
+
+            <?php if ($error): ?>
+                <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
+            <?php endif; ?>
+
+            <?php if ($success): ?>
+                <div class="alert alert-success"><?php echo htmlspecialchars($success); ?></div>
+            <?php endif; ?>
+
+            <form method="POST" action="">
+                <?php echo csrfInput(); ?>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-icon email">
+                        <input type="email" id="email" name="email" class="form-control"
+                               placeholder="Enter your email" required autofocus
+                               value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-icon password">
+                        <input type="password" id="password" name="password" class="form-control"
+                               placeholder="Enter your password" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Login
+                </button>
+            </form>
+
+            <div class="auth-footer">
+                <a href="<?php echo $base_url; ?>" class="back-link">← Back to Home</a>
+                <span style="margin: 0 0.75rem; color: var(--dark-border);">|</span>
+                Don't have an account? <a href="<?php echo $base_url; ?>/auth/register.php">Sign up</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
