@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2026 at 04:44 AM
+-- Generation Time: May 10, 2026 at 01:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -70,7 +70,16 @@ INSERT INTO `activity_log` (`log_id`, `user_id`, `action`, `entity_type`, `entit
 (24, 11, 'create', 'tractor', 20, '{\"name\":\"Field Warrior 45\",\"brand\":\"Yanmar\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-09 02:39:43'),
 (25, 11, 'create', 'tractor', 21, '{\"name\":\"Terra Farmer 70\",\"brand\":\"Foton\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-09 02:41:06'),
 (26, 11, 'create', 'tractor', 22, '{\"name\":\"CropMover 80\",\"brand\":\"Deutz-Fahr\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-09 02:42:33'),
-(27, 11, 'delete', 'tractor', 21, '{\"name\":\"Terra Farmer 70\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-09 02:42:50');
+(27, 11, 'delete', 'tractor', 21, '{\"name\":\"Terra Farmer 70\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-09 02:42:50'),
+(28, 11, 'create', 'booking', 13, '{\"tractor_id\":17,\"customer_id\":2,\"amount\":11000}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 05:40:57'),
+(29, 11, 'delete', 'booking', 13, '[]', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 05:41:12'),
+(30, 11, 'create', 'booking', 14, '{\"tractor_id\":13,\"customer_id\":10,\"amount\":6500}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 05:42:09'),
+(31, 11, 'create', 'booking', 15, '{\"tractor_id\":16,\"customer_id\":8,\"amount\":93600}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 05:42:29'),
+(32, 11, 'update', 'tractor', 15, '{\"name\":\"7630\",\"brand\":\"Massey Ferguson\",\"status\":\"booked\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 05:52:02'),
+(33, 11, 'update', 'tractor', 15, '{\"name\":\"7630\",\"brand\":\"Massey Ferguson\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 06:36:13'),
+(34, 11, 'update', 'tractor', 19, '{\"name\":\"Agro Beast 90\",\"brand\":\"Case IH\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 06:36:28'),
+(35, 11, 'update', 'tractor', 22, '{\"name\":\"CropMover 80\",\"brand\":\"Deutz-Fahr\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 06:36:39'),
+(36, 11, 'update', 'tractor', 14, '{\"name\":\"AgriPower 75\",\"brand\":\"New Holland\",\"status\":\"available\"}', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36', '2026-05-10 06:36:56');
 
 -- --------------------------------------------------------
 
@@ -93,6 +102,14 @@ CREATE TABLE `bookings` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`booking_id`, `tractor_id`, `customer_id`, `user_id`, `booking_date`, `start_date`, `end_date`, `rental_type`, `total_amount`, `status`, `notes`, `created_at`, `updated_at`) VALUES
+(14, 13, 10, 11, '2026-05-10', '2026-05-22', '2026-05-15', 'daily', 6500.00, 'pending', 'wdasdsa', '2026-05-10 05:42:09', '2026-05-10 05:42:09'),
+(15, 16, 8, 11, '2026-05-10', '2026-05-14', '2026-05-27', 'hourly', 93600.00, 'pending', 'saeafa', '2026-05-10 05:42:29', '2026-05-10 05:42:29');
 
 -- --------------------------------------------------------
 
@@ -154,7 +171,8 @@ INSERT INTO `customers` (`customer_id`, `first_name`, `last_name`, `email`, `pho
 (9, 'joshua', 'N/A', 'joshau@gmail.com', '', NULL, NULL, NULL, NULL, '2026-05-07 01:38:35', '2026-05-07 01:38:35'),
 (10, 'joshua', 'N/A', 'sadboy@gmail.com', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '2026-05-08 03:22:45', '2026-05-08 03:22:45'),
 (11, 'justinqwe', 'N/A', 'justinqwe@gmail.com', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '2026-05-08 11:40:52', '2026-05-08 11:40:52'),
-(12, 'joshuadas', 'N/A', 'opopop@gmail.com', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '2026-05-08 13:08:40', '2026-05-08 13:08:40');
+(12, 'joshuadas', 'N/A', 'opopop@gmail.com', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '2026-05-08 13:08:40', '2026-05-08 13:08:40'),
+(13, 'asdhlashdlas', 'N/A', 'opop@gmail.com', 'N/A', 'N/A', 'N/A', 'N/A', 'N/A', '2026-05-10 05:50:14', '2026-05-10 05:50:14');
 
 -- --------------------------------------------------------
 
@@ -205,13 +223,13 @@ CREATE TABLE `tractors` (
 INSERT INTO `tractors` (`tractor_id`, `category_id`, `tractor_name`, `brand`, `model`, `year_manufactured`, `horsepower`, `hourly_rate`, `daily_rate`, `status`, `image_url`, `image_path`, `description`, `created_at`, `updated_at`) VALUES
 (13, 4, 'RiceField Pro 55', 'Kubota', 'MU5501', 2022, 55, 950.00, 6500.00, '', '', 'uploads/tractors/tractor_1778293493_827737a7.webp', 'Reliable tractor designed for rice field cultivation and light hauling tasks.', '2026-05-09 02:24:53', '2026-05-09 02:24:53'),
 (14, 2, 'AgriPower 75', 'New Holland', '7630', 2021, 75, 1300.00, 9500.00, 'available', '', 'uploads/tractors/tractor_1778293580_0c854722.jpg', 'Powerful and fuel-efficient tractor ideal for medium to large farm', '2026-05-09 02:26:20', '2026-05-09 02:30:20'),
-(15, 5, '7630', 'Massey Ferguson', 'MF 260', 2020, 65, 1150.00, 8500.00, '', '', 'uploads/tractors/tractor_1778293694_4b7de201.webp', 'Durable all-purpose tractor suitable for plowing, tilling, and transport work.', '2026-05-09 02:28:14', '2026-05-09 02:28:14'),
+(15, 5, '7630', 'Massey Ferguson', 'MF 260', 2020, 65, 1150.00, 8500.00, 'available', '', 'uploads/tractors/tractor_1778293694_4b7de201.webp', 'Durable all-purpose tractor suitable for plowing, tilling, and transport work.', '2026-05-09 02:28:14', '2026-05-10 06:36:13'),
 (16, 5, 'GreenLand 50', 'John Deere', '5045D', 2023, 55, 900.00, 6800.00, '', '', 'uploads/tractors/tractor_1778293929_388aa42b.webp', 'Compact farming tractor with smooth handling and low fuel consumption.', '2026-05-09 02:32:09', '2026-05-09 02:32:09'),
 (17, 2, 'Harvest King 85', 'Mahindra', 'NOVO 755 DI', 2022, 75, 1500.00, 11000.00, '', '', 'uploads/tractors/tractor_1778294010_841f7a31.jpg', 'Heavy-duty tractor built for intensive agricultural operations and harvesting.', '2026-05-09 02:33:30', '2026-05-09 02:33:30'),
 (18, 3, 'SoilMaster 60', 'Sonalika', 'RX 60', 2021, 65, 1000.00, 7800.00, '', '', 'uploads/tractors/tractor_1778294094_c045a031.webp', 'Efficient tractor designed for soil preparation and farming productivity.', '2026-05-09 02:34:54', '2026-05-09 02:34:54'),
-(19, 5, 'Agro Beast 90', 'Case IH', 'Farmall 90', 2020, 90, 1700.00, 12500.00, '', '', 'uploads/tractors/tractor_1778294258_7b05cf85.jpg', 'High-performance tractor capable of handling demanding field operations.', '2026-05-09 02:37:38', '2026-05-09 02:37:38'),
+(19, 5, 'Agro Beast 90', 'Case IH', 'Farmall 90', 2020, 90, 1700.00, 12500.00, 'available', '', 'uploads/tractors/tractor_1778294258_7b05cf85.jpg', 'High-performance tractor capable of handling demanding field operations.', '2026-05-09 02:37:38', '2026-05-10 06:36:28'),
 (20, 2, 'Field Warrior 45', 'Yanmar', 'EF453T', 2021, 45, 850.00, 6200.00, '', '', 'uploads/tractors/tractor_1778294383_2a4ecdd1.jpg', 'Lightweight and maneuverable tractor perfect for small farms and gardens.', '2026-05-09 02:39:43', '2026-05-09 02:39:43'),
-(22, 1, 'CropMover 80', 'Deutz-Fahr', 'Agrolux 80', 2021, 65, 1450.00, 10800.00, '', '', 'uploads/tractors/tractor_1778294553_ddedd91c.jpeg', 'Modern tractor with advanced controls for efficient crop and land management.', '2026-05-09 02:42:33', '2026-05-09 02:42:33');
+(22, 1, 'CropMover 80', 'Deutz-Fahr', 'Agrolux 80', 2021, 65, 1450.00, 10800.00, 'available', '', 'uploads/tractors/tractor_1778294553_ddedd91c.jpeg', 'Modern tractor with advanced controls for efficient crop and land management.', '2026-05-09 02:42:33', '2026-05-10 06:36:39');
 
 -- --------------------------------------------------------
 
@@ -246,7 +264,8 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `full_name`, `r
 (8, 'qwe', 'qwe@gmail.com', '$2y$10$6Fi4ipTcTc8YgzprDyqbr..4FWDibxjU0.sgy8dJ9zcHLNVuCSj1O', 'justin', 'admin', 1, '2026-05-08 07:41:32', '2026-05-08 07:41:32'),
 (9, 'justinqwe', 'justinqwe@gmail.com', '$2y$10$WbRKzSIqLQNBX6pcJCE1EOME2sJUxoBsp5Rb8Q7iOmsyQb3.aQojG', 'justinqwe', 'customer', 1, '2026-05-08 11:40:52', '2026-05-08 11:40:52'),
 (10, 'asdasd', 'opopop@gmail.com', '$2y$10$tDYpZxKFtocy2/Vybsd8fupuAxsNBDe3JvmgZUETrTbSSlKh9Veki', 'joshuadas', 'customer', 1, '2026-05-08 13:08:40', '2026-05-08 13:08:40'),
-(11, 'joshuasdasd', 'joshua@gmail.com', '$2y$10$ifu.05rqYxLj/pwo5IqcyuUK1dX0Kmv0KUpKWFKEdMcu40JKwtPgu', 'joshuasdasdas', 'admin', 1, '2026-05-08 15:40:41', '2026-05-08 15:40:41');
+(11, 'joshuasdasd', 'joshua@gmail.com', '$2y$10$ifu.05rqYxLj/pwo5IqcyuUK1dX0Kmv0KUpKWFKEdMcu40JKwtPgu', 'joshuasdasdas', 'admin', 1, '2026-05-08 15:40:41', '2026-05-08 15:40:41'),
+(12, 'opopopop', 'opop@gmail.com', '$2y$10$ALWrfpY4eGgR5bJVkZZJ3OEc5BeXWrkYhNUlb6/RPxp1GXFkjO8we', 'asdhlashdlas', 'customer', 1, '2026-05-10 05:50:14', '2026-05-10 05:50:14');
 
 --
 -- Indexes for dumped tables
@@ -329,13 +348,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `activity_log`
 --
 ALTER TABLE `activity_log`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `categories`
@@ -347,7 +366,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `payments`
@@ -365,7 +384,7 @@ ALTER TABLE `tractors`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
