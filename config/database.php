@@ -1,9 +1,19 @@
 <?php
+/**
+ * ============================================================
+ * TRACKTOR: Tractor Booking System
+ * Database Configuration File
+ * ============================================================
+ * Configure your XAMPP MySQL connection settings below.
+ * Default XAMPP credentials: root / no password
+ * ============================================================
+ */
 
+// Database connection settings
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'tracktor_db');
+define('DB_NAME', 'tractor_db');
 define('DB_USER', 'root');
-define('DB_PASS', ''); 
+define('DB_PASS', '');  // Default XAMPP has no password
 
 /**
  * Get PDO database connection

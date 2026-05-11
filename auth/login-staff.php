@@ -59,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $base_url = getBaseUrl();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,8 +67,7 @@ $base_url = getBaseUrl();
     <title>Staff Login - TRACKTOR</title>
     <link rel="stylesheet" href="/tracktor/css/style.css?v=2">
     <link rel="icon" type="image/png" href="/tracktor/logo.png">
-</head>
-<style>
+    <style>
         .auth-wrapper {
             min-height: 100vh;
             display: flex;
@@ -307,10 +305,10 @@ $base_url = getBaseUrl();
                 width: 160px;
             }
         }
-</style>
-
+    </style>
+</head>
 <body>
-     <div class="auth-wrapper">
+    <div class="auth-wrapper">
         <div class="auth-bg"></div>
         <div class="auth-overlay"></div>
         <div class="auth-card">
@@ -354,8 +352,6 @@ $base_url = getBaseUrl();
                 <span style="margin: 0 0.75rem; color: var(--dark-border);">|</span>
                 Need an account? <a href="<?php echo $base_url; ?>/auth/register-staff.php">Contact admin</a>
         </div>
-        </div>
     </div>
-    
 </body>
 </html>

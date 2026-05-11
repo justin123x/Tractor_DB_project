@@ -64,7 +64,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $base_url = getBaseUrl();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

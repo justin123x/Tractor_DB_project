@@ -1,8 +1,12 @@
 <?php
 /**
+ * ============================================================
+ * TRACKTOR: Tractor Booking System
  * Logout Handler
+ * ============================================================
  * Securely destroys the user session and redirects to login.
  * Prevents session fixation by clearing all session data.
+ * ============================================================
  */
 
 require_once __DIR__ . '/../includes/functions.php';
